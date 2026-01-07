@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* =========================
+   GLOBAL SMOOTH LUXURY MOTION
+   ========================= */
+* {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* =========================
+   COLOR SYSTEM (SPA)
+   ========================= */
+:root {
+  --bg-color: #F7F3EE;        /* creme */
+  --text-main: #0F0F0F;       /* soft black */
+  --text-muted: #6B5C4D;     /* mocca */
+  --gold: #C6A15B;
+  --gold-dark: #9E7C3A;
+}
+
+/* =========================
+   BODY
+   ========================= */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   LUXURY GLASS (SPA VERSION)
+   ========================= */
+.glass-container {
+  background: rgba(247, 243, 238, 0.75); /* creme glass */
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(198, 161, 91, 0.25); /* gold border */
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+}

@@ -1,57 +1,113 @@
-import { Instagram, Twitter, Globe, Send, Mail, Phone } from 'lucide-react';
+import { Instagram, Globe, Mail, MapPin } from "lucide-react";
+
+const COMPANY_LINKS = [
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Testimonials", href: "/testimonials" },
+];
+
+const SOCIALS = [
+  { label: "Instagram", href: "#", icon: Instagram },
+  { label: "Website", href: "#", icon: Globe },
+];
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#E2E8F0] pt-10 pb-20 overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="bg-white/40 backdrop-blur-[50px] border border-white/80 rounded-[4rem] p-12 md:p-16 shadow-[0_-30px_60px_rgba(0,0,0,0.05)]">
-          <div className="grid md:grid-cols-4 gap-16">
-            
-            <div className="col-span-1 md:col-span-1 space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg">C</div>
-                <span className="font-black text-2xl tracking-tighter italic uppercase text-slate-900">COREBIZ</span>
-              </div>
-              <p className="text-slate-500 font-medium leading-relaxed">Membangun masa depan digital dengan desain estetik dan performa kelas dunia.</p>
+    <footer className="bg-[#F8FAFC] pt-20 pb-10">
+      <div className="container mx-auto px-6">
+        <div className="bg-white border border-slate-200 rounded-[3rem] p-12 shadow-xl">
+
+          <div className="grid gap-12 md:grid-cols-4">
+
+            {/* Brand */}
+            <div className="space-y-5">
+              <span className="text-2xl font-black tracking-tight text-blue-950 uppercase">
+                DASH
+              </span>
+              <p className="text-slate-500 leading-relaxed">
+                Your car deserves a refined and professional touch.
+              </p>
             </div>
 
-            <div className="space-y-6">
-              <h4 className="font-black uppercase text-xs tracking-[0.2em] text-indigo-600">Company</h4>
-              <ul className="space-y-3 font-bold text-slate-600 text-sm italic">
-                {['About Us', 'Our Services', 'Recent Projects', 'Client Testimonials'].map(item => (
-                  <li key={item} className="hover:text-indigo-600 transition-colors cursor-pointer">{item}</li>
+            {/* Company */}
+            <nav>
+              <h4 className="mb-4 text-xs font-black tracking-[0.25em] uppercase text-blue-950">
+                Company
+              </h4>
+              <ul className="space-y-3 text-sm font-semibold text-slate-600">
+                {COMPANY_LINKS.map(link => (
+                  <li key={link.label}>
+                    <a href={link.href} className="hover:text-blue-950 transition-colors">
+                      {link.label}
+                    </a>
+                  </li>
                 ))}
               </ul>
+            </nav>
+
+            {/* Contact */}
+            <div>
+              <h4 className="mb-4 text-xs font-black tracking-[0.25em] uppercase text-blue-950">
+                Contact
+              </h4>
+              <address className="not-italic space-y-3 text-sm font-semibold text-slate-600">
+                <p className="flex items-center gap-2">
+                  <MapPin size={14} className="text-blue-950" />
+                  Medang, Tangerang
+                </p>
+                <p className="flex items-center gap-2">
+                  <Instagram size={14} className="text-blue-950" />
+                  @dashcarwash.gs
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail size={14} className="text-blue-950" />
+                  dashcarwash@gmail.com
+                </p>
+              </address>
             </div>
 
-            <div className="space-y-6">
-              <h4 className="font-black uppercase text-xs tracking-[0.2em] text-indigo-600">Contact</h4>
-              <div className="space-y-3 text-slate-600 font-bold text-sm">
-                <p className="flex items-center gap-2"><Mail size={14}/> hello@corebiz.com</p>
-                <p className="flex items-center gap-2"><Phone size={14}/> +62 812 3456 789</p>
-              </div>
-            </div>
-
-            <div className="space-y-6 text-right">
-              <h4 className="font-black uppercase text-xs tracking-[0.2em] text-indigo-600">Stay Updated</h4>
-              <div className="relative group">
-                <input type="text" placeholder="Your Email" className="w-full bg-white/40 border border-white/60 rounded-2xl px-6 py-4 outline-none font-bold text-sm focus:bg-white/60 transition-all" />
-                <button className="absolute right-2 top-2 bottom-2 bg-slate-900 text-white px-4 rounded-xl hover:bg-indigo-600 transition-all shadow-lg"><Send size={16}/></button>
+            {/* Social */}
+            <div className="md:text-right">
+              <h4 className="mb-4 text-xs font-black tracking-[0.25em] uppercase text-blue-950">
+                Follow Us
+              </h4>
+              <div className="flex md:justify-end gap-4">
+                {SOCIALS.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="
+                      w-12 h-12 rounded-full
+                      bg-slate-100
+                      border border-slate-200
+                      flex items-center justify-center
+                      text-blue-950
+                      hover:bg-blue-950
+                      hover:text-white
+                      transition-all
+                      shadow-sm
+                    "
+                  >
+                    <Icon size={20} />
+                  </a>
+                ))}
               </div>
             </div>
 
           </div>
-          
-          <div className="mt-16 pt-10 border-t border-indigo-200/30 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.5em]">© 2024 COREBIZ STUDIO. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-4">
-              {[Instagram, Twitter, Globe].map((Icon, i) => (
-                <div key={i} className="w-12 h-12 bg-white/40 backdrop-blur-md border border-white rounded-full flex items-center justify-center text-slate-700 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer shadow-sm">
-                  <Icon size={20} />
-                </div>
-              ))}
-            </div>
+
+          {/* Bottom */}
+          <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-[11px] font-bold tracking-widest text-slate-500 uppercase">
+              © {new Date().getFullYear()} Dash Carwash. All rights reserved.
+            </p>
+            <p className="text-xs text-slate-500">
+              Licensed Dash Carwash Gading Serpong
+            </p>
           </div>
+
         </div>
       </div>
     </footer>

@@ -72,6 +72,8 @@ const Hero = () => {
                 hover:bg-[#B08E4F]
                 transition-colors
                 shadow-lg
+                flex
+                justify-center
               "
             >
               Explore Treatments
